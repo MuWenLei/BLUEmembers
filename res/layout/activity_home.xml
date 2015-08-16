@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/home_title"
+        layout="@layout/activity_title" />
+
+    <LinearLayout
+        android:id="@+id/home_fragmnet"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/home_group"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:background="#1d2123"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/home_magazinelin"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center" >
+
+            <RadioButton
+                android:id="@+id/home_magazine"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:button="@drawable/tab_bar_0_btn"
+                android:clickable="false"
+                android:enabled="false"
+                android:focusable="false"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/home_lifelin"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center" >
+
+            <RadioButton
+                android:id="@+id/home_life"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:button="@drawable/tab_bar_1_btn"
+                android:clickable="false"
+                android:enabled="false"
+                android:focusable="false" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/home_personlin"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:focusable="false"
+            android:gravity="center" >
+
+            <RadioButton
+                android:id="@+id/home_person"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:button="@drawable/tab_bar_2_btn"
+                android:clickable="false"
+                android:enabled="false"
+                android:focusable="false" />
+        </LinearLayout>
+    </RadioGroup>
+
+</LinearLayout>

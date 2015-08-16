@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android_custom="http://schemas.android.com/apk/res/com.mwl.bluemembers"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00000000"
+    android:clickable="true"
+    android:orientation="vertical"
+    android:paddingBottom="15dp" >
+
+    <LinearLayout
+        android:id="@+id/fragment_magazine_cilcklin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:background="#eeeeee"
+        android:clickable="true"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/fragment_magazine_lin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/fragment_magazine_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/a" />
+
+            <com.mwl.bluemembers.view.RoundProgressBar
+                android:id="@+id/fragment_magazine_roundProgressBar"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_centerInParent="true"
+                android:clickable="false"
+                android_custom:roundColor="#ffffff"
+                android_custom:roundProgressColor="#004487"
+                android_custom:roundWidth="3dp"
+                android_custom:textIsDisplayable="false" />
+
+            <ImageView
+                android:id="@+id/fragment_magazine_arrows"
+                android:layout_width="37dp"
+                android:layout_height="37dp"
+                android:layout_centerInParent="true"
+                android:clickable="false"
+                android:src="@drawable/downloading" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/fragment_magazine_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="7dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="7dp"
+            android:textColor="#36393b"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/fragment_magazine_del"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:visibility="invisible"
+        android:src="@drawable/delpdf" />
+
+</RelativeLayout>

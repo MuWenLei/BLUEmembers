@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="220dp"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="17dp"
+        android:layout_marginTop="17dp"
+        android:background="@drawable/dialog_bg"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/login_weixin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:drawableLeft="@drawable/login_weixin"
+            android:drawablePadding="15dp"
+            android:gravity="center"
+            android:clickable="true"
+            android:paddingBottom="9dp"
+            android:paddingTop="9dp"
+            android:text="微信登录"
+            android:textColor="@color/login_text_btn"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#dcdcdc" />
+
+        <TextView
+            android:id="@+id/login_qq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:drawableLeft="@drawable/login_qq"
+            android:drawablePadding="15dp"
+            android:gravity="center"
+            android:paddingBottom="9dp"
+            android:clickable="true"
+            android:paddingTop="9dp"
+            android:text="QQ登录"
+            android:textColor="@color/login_text_btn"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#dcdcdc" />
+
+        <TextView
+            android:id="@+id/login_xinlang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:drawableLeft="@drawable/login_xinlang"
+            android:drawablePadding="15dp"
+            android:gravity="center"
+            android:paddingBottom="9dp"
+            android:paddingTop="9dp"
+            android:clickable="true"
+            android:text="新浪登录"
+            android:textColor="@color/login_text_btn"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/login_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:src="@drawable/dialog_close_btn" />
+
+    <ProgressBar
+        android:id="@+id/login_pro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:visibility="gone" />
+
+</RelativeLayout>

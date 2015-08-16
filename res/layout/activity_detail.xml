@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e7ebf2"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/detail_title"
+        layout="@layout/activity_title" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:id="@+id/detial_gv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="invisible" >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="#003870" />
+
+            <com.mwl.bluemembers.view.PullToRefreshLayout
+                android:id="@+id/refresh_listview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <include layout="@layout/refresh_head" />
+                <!-- 支持所有实现Pullable接口的View -->
+
+                <com.mwl.bluemembers.view.PullableListView
+                    android:id="@+id/detail_listview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#e7ebf2"
+                    android:divider="@drawable/list_divider"
+                    android:dividerHeight="3dp"
+                    android:scrollbars="none" />
+
+                <include layout="@layout/load_more" />
+            </com.mwl.bluemembers.view.PullToRefreshLayout>
+
+            <!-- <com.mwl.bluemembers.view.CustomListView -->
+            <!-- android:id="@+id/detail_listview" -->
+            <!-- android:layout_width="match_parent" -->
+            <!-- android:layout_height="match_parent" -->
+            <!-- android:divider="@drawable/list_divider" -->
+            <!-- android:dividerHeight="3dp" -->
+            <!-- android:scrollbars="none" /> -->
+
+
+            <!-- <ListView -->
+            <!-- android:id="@+id/detail_listview" -->
+            <!-- android:layout_width="match_parent" -->
+            <!-- android:layout_height="wrap_content" -->
+            <!-- android:scrollbars="none" /> -->
+        </LinearLayout>
+
+        <include
+            android:id="@+id/detail_pro"
+            layout="@layout/pro"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</LinearLayout>

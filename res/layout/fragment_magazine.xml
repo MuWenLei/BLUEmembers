@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_yun" />
+
+    <com.mwl.bluemembers.view.PullToRefreshLayout
+        android:id="@+id/refresh_gridview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="20dp" >
+
+        <include layout="@layout/refresh_head" />
+        <!-- 支持所有实现Pullable接口的View -->
+
+        <com.mwl.bluemembers.view.PullableGridView
+            android:id="@+id/fmagazine"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:numColumns="2"
+            android:scrollbars="none" />
+
+        <include layout="@layout/load_more" />
+    </com.mwl.bluemembers.view.PullToRefreshLayout>
+
+    <!-- <GridView -->
+    <!-- android:id="@+id/fmagazine" -->
+    <!-- android:layout_width="match_parent" -->
+    <!-- android:layout_height="match_parent" -->
+    <!-- android:layout_marginLeft="20dp" -->
+    <!-- android:layout_marginRight="20dp" -->
+    <!-- android:horizontalSpacing="11dp" -->
+    <!-- android:numColumns="2" -->
+    <!-- android:scrollbars="none" > -->
+    <!-- </GridView> -->
+
+    <include
+        android:id="@+id/fmagazine_pro"
+        layout="@layout/pro"
+        android:visibility="gone" />
+
+</RelativeLayout>

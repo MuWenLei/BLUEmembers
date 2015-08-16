@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="detail_item_normal">#e6eaf1</color>
+    <color name="detail_item_press">#d8dce2</color>
+    <color name="result_view">#b0000000</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="possible_result_points">#c0ffff00</color>
+    <color name="transparent">#00000000</color>
+    <color name="white">#ffffff</color>
+    <color name="pull_refresh_textview">#000000</color>
+    <color name="gold">#000000</color>
+    <color name="black">#000</color>
+    <color name="actionbar_background">#004487</color>
+    <color name="actionbar_background_dark">#004487</color>
+    <color name="actionbar_background_semitransp">#004487</color>
+    <color name="actionbar_tint">#004487</color>
+    <color name="text_normal">#CCCCCC</color>
+    <color name="gray">#aaaaaa</color>
+    <color name="light_blue">#6593cb</color>
+    <color name="tran">#00000000</color>
+    
+
+</resources>
