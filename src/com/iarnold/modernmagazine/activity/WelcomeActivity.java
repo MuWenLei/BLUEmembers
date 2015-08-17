@@ -55,7 +55,7 @@ public class WelcomeActivity extends BaseActivity implements
 
 	private GeoCoder mSearch = null;
 
-	private String city;
+	 private String city;
 
 	private boolean flag = false;
 
@@ -114,9 +114,11 @@ public class WelcomeActivity extends BaseActivity implements
 		@Override
 		public void onReceiveLocation(BDLocation location) {
 			if (location != null) {
+
 				mSearch.reverseGeoCode(new ReverseGeoCodeOption()
 						.location(new LatLng(location.getLatitude(), location
 								.getLongitude())));
+				mLocationClient.stop();
 
 			}
 
@@ -131,46 +133,49 @@ public class WelcomeActivity extends BaseActivity implements
 		flag = true;
 		HttpUtils utils = new HttpUtils();
 		utils.configTimeout(20000);
-		LogManager.LogShow("-----", Constant.ROOT_PATH + "/root.php?state="
-				+ city, LogManager.ERROR);
-		utils.send(HttpMethod.GET, Constant.ROOT_PATH + "/root.php?state="
-				+ city, new RequestCallBack<String>() {
-			@Override
-			public void onStart() {
-				super.onStart();
-			}
-
-			@Override
-			public void onFailure(HttpException arg0, String arg1) {
-//				setValues();
-			}
-
-			@Override
-			public void onSuccess(ResponseInfo<String> arg0) {
-				Gson gson = new Gson();
-				try {
-					LogManager.LogShow(BATG, arg0.result, LogManager.ERROR);
-					MainEntity entity = gson.fromJson(arg0.result,
-							MainEntity.class);
-					if (entity != null) {
-						Intent intent = new Intent(WelcomeActivity.this,
-								MainActivity.class);
-//						intent.putExtra("entity", entity);
-						ShareDataTool.saveMainInfo(WelcomeActivity.this, entity);
-						intent.putExtra("city", city);
-						startActivity(intent);
-						finish();
-					} else {
-//						setValues();
+		// LogManager.LogShow("-----", Constant.ROOT_PATH + "/root.php?state="
+		// + city, LogManager.ERROR);
+		utils.send(HttpMethod.GET, Constant.ROOT_PATH + "/root.php",
+				new RequestCallBack<String>() {
+					@Override
+					public void onStart() {
+						super.onStart();
 					}
-				} catch (Exception e) {
-					e.printStackTrace();
-//					setValues();
-				}
 
-			}
+					@Override
+					public void onFailure(HttpException arg0, String arg1) {
+						// setValues();
+					}
 
-		});
+					@Override
+					public void onSuccess(ResponseInfo<String> arg0) {
+						Gson gson = new Gson();
+						try {
+							LogManager.LogShow(BATG, arg0.result,
+									LogManager.ERROR);
+							MainEntity entity = gson.fromJson(arg0.result,
+									MainEntity.class);
+							if (entity != null) {
+								Intent intent = new Intent(
+										WelcomeActivity.this,
+										MainActivity.class);
+								// intent.putExtra("entity", entity);
+								ShareDataTool.saveMainInfo(
+										WelcomeActivity.this, entity);
+								intent.putExtra("city", city);
+								startActivity(intent);
+								finish();
+							} else {
+								// setValues();
+							}
+						} catch (Exception e) {
+							e.printStackTrace();
+							// setValues();
+						}
+
+					}
+
+				});
 
 	}
 
@@ -196,43 +201,56 @@ public class WelcomeActivity extends BaseActivity implements
 		}
 	}
 
-//	private void setValues() {
-//		MainEntity mainEntity = new MainEntity();
-//		List<String> list = new ArrayList<String>();
-//		list.add("assets/main_image.png");
-//		list.add("");
-//		List<List<String>> list2 = new ArrayList<List<String>>();
-//		list2.add(list);
-//		mainEntity.carousel = list2;
-//
-//		List<String> wList = new ArrayList<String>();
-//		wList.add("");
-//		wList.add("");
-//		wList.add("https://www.bluemembers.com.cn/Mall/Index?pageName=Mall");
-//		wList.add("北京");
-//		wList.add("BEIJING");
-//		mainEntity.weather = wList;
-//
-//		mainEntity.blue = "https://www.bluemembers.com.cn/Account/LogonPage?returnUrl=%2FMyCenter%2FIndex";
-//		mainEntity.hlife = "https://www.hlife.com";
-//		mainEntity.driving = "http://clubquestion.club-beijing-hyundai.com/hlife_app/driving_list.php";
-//		mainEntity.film = "http://clubquestion.club-beijing-hyundai.com/hlife_app/film_list.php";
-//		mainEntity.food = "http://clubquestion.club-beijing-hyundai.com/hlife_app/food_list.php";
-//		mainEntity.ques = "http://clubquestion.club-beijing-hyundai.com/ques.php";
-//		mainEntity.ownerlife = "http://clubquestion.club-beijing-hyundai.com/hlife_app/ownerlife.php";
-//		mainEntity.magazine = "http://clubquestion.club-beijing-hyundai.com/hlife_app/magazine_list.php";
-//		mainEntity.userlogin = "http://clubquestion.club-beijing-hyundai.com/login.php";
-//		mainEntity.userinfo = "http://clubquestion.club-beijing-hyundai.com/getuserinfo.php";
-//		mainEntity.userregister = "https://www.bluemembers.com.cn/Account/AccountRegister";
-//		mainEntity.userresetpasswd = "https://www.bluemembers.com.cn/Account/ResetPasswd";
-//		mainEntity.event = "http://clubquestion.club-beijing-hyundai.com/event.php";
-//		mainEntity.eventreport = "http://clubquestion.club-beijing-hyundai.com/hlife_app/getevent.php";
-//
-//		Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
-//		intent.putExtra("entity", mainEntity);
-//		intent.putExtra("city", city);
-//		startActivity(intent);
-//		finish();
-//
-//	}
+	// private void setValues() {
+	// MainEntity mainEntity = new MainEntity();
+	// List<String> list = new ArrayList<String>();
+	// list.add("assets/main_image.png");
+	// list.add("");
+	// List<List<String>> list2 = new ArrayList<List<String>>();
+	// list2.add(list);
+	// mainEntity.carousel = list2;
+	//
+	// List<String> wList = new ArrayList<String>();
+	// wList.add("");
+	// wList.add("");
+	// wList.add("https://www.bluemembers.com.cn/Mall/Index?pageName=Mall");
+	// wList.add("北京");
+	// wList.add("BEIJING");
+	// mainEntity.weather = wList;
+	//
+	// mainEntity.blue =
+	// "https://www.bluemembers.com.cn/Account/LogonPage?returnUrl=%2FMyCenter%2FIndex";
+	// mainEntity.hlife = "https://www.hlife.com";
+	// mainEntity.driving =
+	// "http://clubquestion.club-beijing-hyundai.com/hlife_app/driving_list.php";
+	// mainEntity.film =
+	// "http://clubquestion.club-beijing-hyundai.com/hlife_app/film_list.php";
+	// mainEntity.food =
+	// "http://clubquestion.club-beijing-hyundai.com/hlife_app/food_list.php";
+	// mainEntity.ques =
+	// "http://clubquestion.club-beijing-hyundai.com/ques.php";
+	// mainEntity.ownerlife =
+	// "http://clubquestion.club-beijing-hyundai.com/hlife_app/ownerlife.php";
+	// mainEntity.magazine =
+	// "http://clubquestion.club-beijing-hyundai.com/hlife_app/magazine_list.php";
+	// mainEntity.userlogin =
+	// "http://clubquestion.club-beijing-hyundai.com/login.php";
+	// mainEntity.userinfo =
+	// "http://clubquestion.club-beijing-hyundai.com/getuserinfo.php";
+	// mainEntity.userregister =
+	// "https://www.bluemembers.com.cn/Account/AccountRegister";
+	// mainEntity.userresetpasswd =
+	// "https://www.bluemembers.com.cn/Account/ResetPasswd";
+	// mainEntity.event =
+	// "http://clubquestion.club-beijing-hyundai.com/event.php";
+	// mainEntity.eventreport =
+	// "http://clubquestion.club-beijing-hyundai.com/hlife_app/getevent.php";
+	//
+	// Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
+	// intent.putExtra("entity", mainEntity);
+	// intent.putExtra("city", city);
+	// startActivity(intent);
+	// finish();
+	//
+	// }
 }
