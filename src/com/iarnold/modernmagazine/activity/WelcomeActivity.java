@@ -40,8 +40,7 @@ import com.iarnold.modernmagazine.R;
  * @date 2015-6-6
  * @description 欢迎页
  */
-public class WelcomeActivity extends BaseActivity implements
-		OnGetGeoCoderResultListener {
+public class WelcomeActivity extends BaseActivity {
 
 	private LocationClient mLocationClient;
 
@@ -53,9 +52,8 @@ public class WelcomeActivity extends BaseActivity implements
 
 	private BDLocation bdLocation = null;
 
-	private GeoCoder mSearch = null;
 
-	 private String city;
+	// private String city;
 
 	private boolean flag = false;
 
@@ -69,25 +67,23 @@ public class WelcomeActivity extends BaseActivity implements
 		mLocationClient.registerLocationListener(mMyLocationListener);
 		InitLocation();
 		mLocationClient.start();
-		mSearch = GeoCoder.newInstance();
-		mSearch.setOnGetGeoCodeResultListener(this);
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
-		new Thread() {
-			public void run() {
-				try {
-					sleep(3000);
-					if (!flag) {
-						if (ToosUtils.isStringEmpty(city)) {
-							city = "北京";
-						}
-						getInfo();
-					}
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			};
-		}.start();
+		// new Thread() {
+		// public void run() {
+		// try {
+		// sleep(3000);
+		// if (!flag) {
+		// if (ToosUtils.isStringEmpty(city)) {
+		// city = "北京";
+		// }
+		// getInfo();
+		// }
+		// } catch (InterruptedException e) {
+		// e.printStackTrace();
+		// }
+		// };
+		// }.start();
 
 	}
 
@@ -114,10 +110,11 @@ public class WelcomeActivity extends BaseActivity implements
 		@Override
 		public void onReceiveLocation(BDLocation location) {
 			if (location != null) {
+				bdLocation = location;
 
-				mSearch.reverseGeoCode(new ReverseGeoCodeOption()
-						.location(new LatLng(location.getLatitude(), location
-								.getLongitude())));
+				// mSearch.reverseGeoCode(new ReverseGeoCodeOption()
+				// .location(new LatLng(location.getLatitude(), location
+				// .getLongitude())));
 				mLocationClient.stop();
 
 			}
@@ -162,7 +159,10 @@ public class WelcomeActivity extends BaseActivity implements
 								// intent.putExtra("entity", entity);
 								ShareDataTool.saveMainInfo(
 										WelcomeActivity.this, entity);
-								intent.putExtra("city", city);
+								intent.putExtra("latitude", String
+										.valueOf(bdLocation.getLatitude()));
+								intent.putExtra("longitude", String
+										.valueOf(bdLocation.getLongitude()));
 								startActivity(intent);
 								finish();
 							} else {
@@ -179,27 +179,27 @@ public class WelcomeActivity extends BaseActivity implements
 
 	}
 
-	@Override
-	public void onGetGeoCodeResult(GeoCodeResult arg0) {
-
-	}
-
-	@Override
-	public void onGetReverseGeoCodeResult(ReverseGeoCodeResult result) {
-		if (result == null || result.error != SearchResult.ERRORNO.NO_ERROR) {
-			city = "北京";
-		} else {
-			city = result.getAddressDetail().city;
-			LogManager.LogShow(BATG, city, LogManager.ERROR);
-			city = city.substring(0, city.length() - 1);
-		}
-		if (!flag) {
-			if (ToosUtils.isStringEmpty(city)) {
-				city = "北京";
-			}
-			getInfo();
-		}
-	}
+	// @Override
+	// public void onGetGeoCodeResult(GeoCodeResult arg0) {
+	//
+	// }
+	//
+	// @Override
+	// public void onGetReverseGeoCodeResult(ReverseGeoCodeResult result) {
+	// if (result == null || result.error != SearchResult.ERRORNO.NO_ERROR) {
+	// city = "北京";
+	// } else {
+	// city = result.getAddressDetail().city;
+	// LogManager.LogShow(BATG, city, LogManager.ERROR);
+	// city = city.substring(0, city.length() - 1);
+	// }
+	// if (!flag) {
+	// if (ToosUtils.isStringEmpty(city)) {
+	// city = "北京";
+	// }
+	// getInfo();
+	// }
+	// }
 
 	// private void setValues() {
 	// MainEntity mainEntity = new MainEntity();

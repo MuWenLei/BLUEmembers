@@ -110,11 +110,15 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 
 	private boolean canExit = false;
 
-	private String city;
+	// private String city;
 
 	private TextView address;
 
 	private UMSocialService mController;
+
+	private String latitude;
+
+	private String longitude;
 
 	private Handler handler = new Handler() {
 		public void handleMessage(Message msg) {
@@ -145,7 +149,8 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		setContentView(R.layout.activity_main);
 		width = DensityUtil.getScreenWidth(this);
 		bitmapUtils = new BitmapUtils(this);
-		city = getIntent().getStringExtra("city");
+		longitude = getIntent().getStringExtra("longitude");
+		latitude = getIntent().getStringExtra("latitude");
 		mController = UMServiceFactory.getUMSocialService("com.umeng.login");
 		initView();
 		initData();
@@ -269,6 +274,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		date.setText(ShareDataTool.getWeather(MainActivity.this).get(3)
 				+ TimeUtils.getDate());
 		addBunne(ShareDataTool.getCarousel(this));
+
 		getInfo();
 
 	}
@@ -460,11 +466,12 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		flag = true;
 		HttpUtils utils = new HttpUtils();
 		utils.configTimeout(20000);
-		LogManager.LogShow("-----", Constant.ROOT_PATH + "/root.php?state="
-				+ city, LogManager.ERROR);
+//		LogManager.LogShow("-----", Constant.ROOT_PATH + "/root.php?state="
+//				+ city, LogManager.ERROR);
 		utils.send(HttpMethod.GET,
-				"http://clubquestion.club-beijing-hyundai.com/weather.php?state="
-						+ city, new RequestCallBack<String>() {
+				"http://www.bluemembershlife.com/weather.php?latitude="
+						+ latitude + "&longitude=" + longitude,
+				new RequestCallBack<String>() {
 					@Override
 					public void onStart() {
 						super.onStart();
