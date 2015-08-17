@@ -38,7 +38,10 @@
         <!-- 模糊 -->
         <!-- <item name="android:windowContentOverlay">@null</item> -->
     </style>
-	
+	  <style name="dialogWindowAnim" mce_bogus="1" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/login_dialog_in</item>
+        <item name="android:windowExitAnimation">@anim/login_dialog_out</item>
+    </style>
     
 
 </resources>

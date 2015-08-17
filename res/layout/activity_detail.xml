@@ -25,7 +25,7 @@
                 android:layout_height="10dp"
                 android:background="#003870" />
 
-            <com.mwl.bluemembers.view.PullToRefreshLayout
+            <com.iarnold.modernmagazine.view.PullToRefreshLayout
                 android:id="@+id/refresh_listview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" >
@@ -33,7 +33,7 @@
                 <include layout="@layout/refresh_head" />
                 <!-- 支持所有实现Pullable接口的View -->
 
-                <com.mwl.bluemembers.view.PullableListView
+                <com.iarnold.modernmagazine.view.PullableListView
                     android:id="@+id/detail_listview"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -43,9 +43,9 @@
                     android:scrollbars="none" />
 
                 <include layout="@layout/load_more" />
-            </com.mwl.bluemembers.view.PullToRefreshLayout>
+            </com.iarnold.modernmagazine.view.PullToRefreshLayout>
 
-            <!-- <com.mwl.bluemembers.view.CustomListView -->
+            <!-- <com.iarnold.modernmagazine.view.CustomListView -->
             <!-- android:id="@+id/detail_listview" -->
             <!-- android:layout_width="match_parent" -->
             <!-- android:layout_height="match_parent" -->

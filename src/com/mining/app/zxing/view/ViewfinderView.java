@@ -28,7 +28,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import com.google.zxing.ResultPoint;
-import com.mwl.bluemembers.R;
+import com.iarnold.modernmagazine.R;
 
 /**
  * This view is overlaid on top of the camera preview. It adds the viewfinder

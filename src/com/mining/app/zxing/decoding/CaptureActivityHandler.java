@@ -29,10 +29,10 @@ import android.util.Log;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
+import com.iarnold.modernmagazine.activity.QRScanActivity;
 import com.mining.app.zxing.camera.CameraManager;
 import com.mining.app.zxing.view.ViewfinderResultPointCallback;
-import com.mwl.bluemembers.R;
-import com.mwl.bluemembers.activity.QRScanActivity;
+import com.iarnold.modernmagazine.R;
 
 /**
  * This class handles all the messaging which comprises the state machine for capture.

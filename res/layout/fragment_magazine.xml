@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/bg_yun" />
 
-    <com.mwl.bluemembers.view.PullToRefreshLayout
+    <com.iarnold.modernmagazine.view.PullToRefreshLayout
         android:id="@+id/refresh_gridview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,7 +20,7 @@
         <include layout="@layout/refresh_head" />
         <!-- 支持所有实现Pullable接口的View -->
 
-        <com.mwl.bluemembers.view.PullableGridView
+        <com.iarnold.modernmagazine.view.PullableGridView
             android:id="@+id/fmagazine"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -28,7 +28,7 @@
             android:scrollbars="none" />
 
         <include layout="@layout/load_more" />
-    </com.mwl.bluemembers.view.PullToRefreshLayout>
+    </com.iarnold.modernmagazine.view.PullToRefreshLayout>
 
     <!-- <GridView -->
     <!-- android:id="@+id/fmagazine" -->

@@ -29,10 +29,10 @@ import com.google.zxing.MultiFormatReader;
 import com.google.zxing.ReaderException;
 import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
+import com.iarnold.modernmagazine.activity.QRScanActivity;
 import com.mining.app.zxing.camera.CameraManager;
 import com.mining.app.zxing.camera.PlanarYUVLuminanceSource;
-import com.mwl.bluemembers.R;
-import com.mwl.bluemembers.activity.QRScanActivity;
+import com.iarnold.modernmagazine.R;
 
 final class DecodeHandler extends Handler {
 
